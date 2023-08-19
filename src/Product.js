@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Product.css"
+import { useStateValue } from './StateProvider'
 
 function Product(props) {
+
+  const [value,setValue] = useState(true);
+
+  const [{bakset},dispatch]  = useStateValue();
+
+  const addToBasket = () =>{
+    setValue(false);
+    dispatch({
+        type : "ADD_TO_BASKET",
+        item :{
+            id : props.id,
+            title: props.title,
+            image: props.image,
+            price : props.price,
+            rating : props.rating
+        }
+    })
+  } 
+  const removeFromBasket = ()=>{
+    setValue(true);
+    dispatch({
+        type : "REMOVE_FROM_BASKET",
+        id : props.id,
+    })
+  }
   return (
     <div className='product_tile'>
         <div className='product_info' >
@@ -19,7 +45,7 @@ function Product(props) {
             </div>
         </div>
         <img className="product_image" src={props.image} alt=''/>
-        <button>Add to basket</button>
+        <button onClick={value?addToBasket:removeFromBasket}>{value ?"Add to basket ": "Remove from basket"}</button>
     </div>
   )
 }

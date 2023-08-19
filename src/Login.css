@@ -1,0 +1,41 @@
+.login{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 550px;
+    padding: 10px;
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border-radius: 3%;
+}
+
+
+.login_Input{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login_logo{
+    width: 100px;
+}
+
+.login_Button{
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    background: #f0c41b;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    border-radius: 5%;
+}
+
+.login_Text{
+    font-weight: 600;
+}
+
+.need_help{
+   color:  #0066c0;
+}
